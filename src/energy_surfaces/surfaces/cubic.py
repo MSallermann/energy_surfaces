@@ -1,4 +1,6 @@
 from energy_surfaces.surfaces import quadratic
+from energy_surfaces import energy_surface
+
 import numpy as np
 import numpy.typing as npt
 from numba.experimental import jitclass
@@ -66,7 +68,7 @@ class CubicSurfaceHelper:
         return h
 
 
-class CubicSurface(quadratic.QuadraticSurface):
+class CubicSurface(energy_surface.EnergySurface):
     """A twodimensional cubic surface"""
 
     def __init__(self, hessian=np.diag([0.0, 0.0]), gradient=np.zeros(2)):
@@ -76,8 +78,6 @@ class CubicSurface(quadratic.QuadraticSurface):
 
         self.surf_quad = quadratic.QuadraticSurface(hessian=hessian, gradient=gradient)
 
-        super().__init__(hessian=hessian, gradient=gradient, ndim=2)
-
     def setup_quapp_example(self, example_idx: int):
         """Sets up the parameters to reproduce the examples from the article
         'Gradient extremals and valley floor bifurcations on potential energy surfaces' by Quapp et al. (1988)
@@ -85,7 +85,7 @@ class CubicSurface(quadratic.QuadraticSurface):
         if example_idx == 2:
             # 1/2 * (xy + 2)*(y-x)
             self.surf_quad.params._hessian = np.zeros(shape=(2, 2))
-            self.surf_quad.params.g0 = np.array([-1, 1])
+            self.surf_quad.params.g0 = np.array([-1.0, 1.0])
             self.params.x2y = -0.5
             self.params.y2x = 0.5
             self.params.x3 = 0.0
@@ -93,7 +93,7 @@ class CubicSurface(quadratic.QuadraticSurface):
         elif example_idx == 3:
             # 1/2 * (xy - 2)*(y-x)
             self.surf_quad.params._hessian = np.zeros(shape=(2, 2))
-            self.surf_quad.params.g0 = np.array([1, -1])
+            self.surf_quad.params.g0 = np.array([1.0, -1.0])
             self.params.x2y = -0.5
             self.params.y2x = 0.5
             self.params.x3 = 0.0
