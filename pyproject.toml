@@ -1,6 +1,6 @@
 [project]
 name = "energy_surfaces"
-version = "0.0.1"
+version = "0.1.0"
 dependencies = ["pytest", "numpy", "numdifftools", "numba"]
 authors = [ {name = "Moritz Sallermann", email = "moritzsallermann@gmail.com"}]
 description = "Energy surfaces."
