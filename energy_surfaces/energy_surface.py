@@ -60,6 +60,7 @@ class EnergySurface(abc.ABC):
         Returns:
             np.ArrayLike: the curvature, equivalent to Hessian * dir
         """
+        assert np.isclose(np.linalg.norm(dir), 1.0)
         # Fallback uses FD
         return self.fd_curvature(x, dir)
 
@@ -98,6 +99,8 @@ class EnergySurface(abc.ABC):
         Returns:
             np.ArrayLike: the curvature, equivalent to Hessian * dir
         """
+        assert np.isclose(np.linalg.norm(dir), 1.0)
+
         return nd.Gradient(self.directional_gradient)(x, dir)
 
     def fd_hessian(self, x: npt.NDArray) -> npt.NDArray:
