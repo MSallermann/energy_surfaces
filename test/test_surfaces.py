@@ -1,4 +1,3 @@
-import energy_surfaces
 from energy_surfaces.surfaces import (
     muller_brown,
     gaussians,
@@ -12,7 +11,6 @@ from energy_surfaces.surfaces import (
 )
 import numdifftools as nd
 import numpy as np
-import pytest
 
 epsilon = 1e6
 

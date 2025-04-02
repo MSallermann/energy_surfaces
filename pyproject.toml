@@ -2,9 +2,5 @@
 name = "energy_surfaces"
 version = "0.0.1"
 dependencies = ["pytest", "numpy", "numdifftools", "numba"]
-
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["energy_surfaces*", "energy_surfaces.*"]  # ["*"] by default
-exclude = ["energy_surfaces.tests*"]  # empty by default
-namespaces = false  # true by default
+authors = [ {name = "Moritz Sallermann", email = "moritzsallermann@gmail.com"}]
+description = "Energy surfaces."

@@ -4,10 +4,10 @@ Some energy surfaces. Implemented in python with numba JIT
 # Installation
 
 ```bash
-pip install -e .
+pip install .
 ```
 
-# MWE
+# Minimum working example
 ```python
 from energy_surfaces.surfaces import lepshogauss
 import numpy as np
