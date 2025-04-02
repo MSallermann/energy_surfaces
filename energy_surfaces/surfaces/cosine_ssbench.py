@@ -2,7 +2,7 @@ from energy_surfaces import energy_surface
 import numpy as np
 import numpy.typing as npt
 
-from numba import njit, int32, float64, typed
+from numba import float64
 from numba.experimental import jitclass
 
 

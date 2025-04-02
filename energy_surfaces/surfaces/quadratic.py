@@ -3,7 +3,7 @@ import numpy as np
 import numpy.typing as npt
 from typing import Optional
 from numba.experimental import jitclass
-from numba import float64, int32
+from numba import float64
 
 
 @jitclass(
